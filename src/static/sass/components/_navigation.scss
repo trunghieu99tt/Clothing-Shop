@@ -1,0 +1,135 @@
+.nav-wrapper {
+	background: #000;
+}
+
+.nav {
+	@include respond(tab-land) {
+		padding: 0 1rem;
+	}
+
+	&__item {
+		list-style: none;
+	}
+
+	&__link {
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #fff;
+	}
+
+	&__checkbox {
+		display: none;
+	}
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-left: auto;
+		width: 50%;
+
+		@include respond(tab-land) {
+			width: 80%;
+		}
+
+		@include respond(tab-port) {
+			display: none;
+		}
+	}
+
+	&__checkbox:checked ~ .nav-small {
+		width: 100%;
+		opacity: 1;
+	}
+
+	&__toggle-btn {
+		background-color: #fff;
+		height: 7rem;
+		width: 7rem;
+		position: fixed;
+		top: 1rem;
+		right: 6rem;
+		z-index: 2000;
+		-webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+		text-align: center;
+		cursor: pointer;
+	}
+
+	&__icon {
+		position: relative;
+		margin-top: 3.5rem;
+	}
+
+	&__icon,
+	&__icon::before,
+	&__icon::after {
+		width: 3rem;
+		height: 2px;
+		background-color: #333;
+		display: inline-block;
+	}
+
+	&__icon::before,
+	&__icon::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		transition: all 0.2s;
+	}
+
+	&__icon::before {
+		top: -8px;
+	}
+
+	&__icon::after {
+		top: 8px;
+	}
+
+	&__toggle-btn {
+		display: none;
+
+		@include respond(tab-port) {
+			display: block;
+		}
+	}
+}
+
+.logo {
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.nav-small {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0%;
+	height: 100%;
+	background: #000;
+	z-index: 1000;
+	opacity: 0;
+	transform-origin: right;
+	transition: all 0.5s;
+
+	&__list {
+		list-style: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__item:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+
+	&__link {
+		text-decoration: none;
+		text-transform: uppercase;
+		color: #fff;
+		font-size: 3rem;
+	}
+}
