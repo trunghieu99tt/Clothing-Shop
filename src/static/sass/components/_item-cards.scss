@@ -64,3 +64,68 @@
 		}
 	}
 }
+
+.item-card-2 {
+	&__img {
+		position: relative;
+		max-height: 30rem;
+		overflow: hidden;
+
+		&:hover .item-card-2__buttons {
+			opacity: 1;
+		}
+
+		&:hover &--back {
+			opacity: 1;
+		}
+
+		&:hover img {
+			filter: brightness(0.8);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&--back {
+			position: absolute;
+			opacity: 0;
+			transition: all 0.5s;
+		}
+	}
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 2rem;
+	}
+
+	&__buttons {
+		@include centerInDiv;
+		opacity: 0;
+		transition: all 0.5s;
+
+		& > * {
+			font-size: 2rem;
+			padding: 0.5rem 1rem;
+			border: 1px solid #fff;
+
+			svg path {
+				fill: #fff;
+			}
+		}
+	}
+
+	.sold-out {
+		position: absolute;
+		top: 5%;
+		right: 5%;
+		font-size: 14px;
+		z-index: 2;
+		background: #fff;
+		padding: 5px 10px;
+	}
+}

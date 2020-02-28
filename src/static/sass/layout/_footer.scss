@@ -30,6 +30,10 @@
 		flex-direction: column;
 		align-items: center;
 
+		@include respond(tab-port) {
+			align-items: flex-start;
+		}
+
 		ul li {
 			display: block;
 			a {

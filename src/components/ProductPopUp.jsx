@@ -20,8 +20,10 @@ export default class ProductPopUp extends Component {
 						>
 							x
 						</p>
-						<h2 className="product-popup__name">Product Name</h2>
-						<p className="product-popup__price">Price</p>
+						<h2 className="product-popup__name section-heading">
+							Product Name
+						</h2>
+						<p className="product-popup__price">$99.99</p>
 						<div className="product-popup__description">
 							<p>
 								Lorem ipsum dolor sit amet consectetur
@@ -33,7 +35,7 @@ export default class ProductPopUp extends Component {
 							</p>
 						</div>
 
-						<div className="product-popup__meta">
+						<div className="product-popup__meta text-left">
 							<p>SKU: 903</p>
 							<p>Category: Showcase</p>
 							<p>Tags: Demo, Showcase</p>

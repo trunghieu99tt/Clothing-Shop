@@ -28,7 +28,7 @@
 
 .nav {
 	@include respond(tab-land) {
-		padding: 0 1rem;
+		padding: 2rem 1rem;
 	}
 
 	&__item {
