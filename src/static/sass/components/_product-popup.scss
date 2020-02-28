@@ -21,7 +21,7 @@
 		border-radius: 5px;
 		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 		transform: translate(-50%, -50%);
-		transition: all 0.5s 0.2s;
+		// transition: all 0.5s 0.2s;
 
 		@include respond(tab-port) {
 			flex-direction: column;
@@ -53,6 +53,7 @@
 		position: absolute;
 		top: 3%;
 		right: 3%;
+		cursor: pointer;
 	}
 
 	&__img {

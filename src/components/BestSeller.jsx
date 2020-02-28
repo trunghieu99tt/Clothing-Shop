@@ -15,12 +15,16 @@ export default class BestSeller extends Component {
 	};
 
 	render() {
+		const { showPopup } = this.state;
+
 		const img =
 			"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";
 
 		return (
-			<section className="best-seller">
-				<h1 className="text-center margin-bottom-3">Best Seller</h1>
+			<section className="best-seller margin-bottom-8">
+				<h1 className="text-center margin-bottom-3 section-heading">
+					Best Seller
+				</h1>
 				<div className="best-seller-items">
 					{[...Array(14)].map((item, index) => {
 						return (
@@ -30,17 +34,21 @@ export default class BestSeller extends Component {
 								onClick={this.showProductPopUp}
 							>
 								<img
-									className="best-seller__img"
+									className="best-seller__item__img"
 									src={img}
 									alt=""
 								/>
+
+								<figcaption className="best-seller__item__caption">
+									Item Name
+								</figcaption>
 							</figure>
 						);
 					})}
 				</div>
 				<ProductPopUp
 					hideProductPopUp={this.hideProductPopUp}
-					show={this.state.showPopup}
+					show={showPopup}
 				/>
 			</section>
 		);

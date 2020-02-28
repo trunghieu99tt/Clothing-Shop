@@ -172,7 +172,7 @@ class Navigation extends Component {
 												{name}
 
 												<i
-													class="material-icons"
+													className="material-icons"
 													onClick={id =>
 														this.toggleDropdown(id)
 													}

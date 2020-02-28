@@ -1,0 +1,57 @@
+%footer-heading {
+	margin-bottom: 2rem;
+	color: #fff;
+}
+
+.footer {
+	text-align: left;
+	padding-top: 5rem;
+
+	&-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-gap: 3rem;
+		margin-bottom: 2rem;
+	}
+
+	&__heading {
+		margin-bottom: 2rem;
+		color: #fff;
+	}
+
+	.contact-infor--footer {
+		p {
+			line-height: 2.4rem;
+		}
+	}
+
+	.new-items--footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		ul li {
+			display: block;
+			a {
+				font-weight: 100;
+			}
+		}
+	}
+
+	.working-time--footer {
+		ul li {
+			color: #fff;
+			display: block;
+
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	.copyright {
+		p {
+			padding: 0;
+		}
+	}
+}

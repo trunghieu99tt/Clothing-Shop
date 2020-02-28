@@ -1,21 +1,21 @@
 @for $i from 1 to 10 {
 	.margin-top-#{$i} {
-		margin-top: $i + rem;
+		margin-top: $i + rem !important;
 	}
 }
 
 @for $i from 1 to 10 {
 	.margin-bottom-#{$i} {
-		margin-bottom: $i + rem;
+		margin-bottom: $i + rem !important;
 	}
 }
 @for $i from 1 to 10 {
 	.margin-left-#{$i} {
-		margin-left: $i + rem;
+		margin-left: $i + rem !important;
 	}
 }
 @for $i from 1 to 10 {
 	.margin-right-#{$i} {
-		margin-right: $i + rem;
+		margin-right: $i + rem !important;
 	}
 }
