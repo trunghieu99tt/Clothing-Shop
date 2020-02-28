@@ -284,7 +284,7 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
 }
 
 h2 {
@@ -305,13 +305,33 @@ p {
 
 .section-heading {
   font-family: "Playfair Display", serif;
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.section-heading::before, .section-heading::after {
+  position: absolute;
+  top: 50%;
+  width: 10%;
+  height: 2px;
+  background: currentColor;
+  content: "";
+}
+
+.section-heading::before {
+  left: -10%;
+}
+
+.section-heading::after {
+  right: -10%;
 }
 
 .nav-wrapper {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background: #000;
+  background: #fff;
   z-index: 100;
 }
 
@@ -329,10 +349,6 @@ p {
           transform-origin: left;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-}
-
-.nav__link:hover, .nav-small__link:hover {
-  color: #fff;
 }
 
 .nav__link:hover::after, .nav-small__link:hover::after {
@@ -360,10 +376,10 @@ p {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #fff;
-  font-size: 1.3rem;
+  color: #000;
   position: relative;
   padding-bottom: 1rem;
+  font-size: 1.6rem;
 }
 
 .nav__checkbox {
@@ -472,7 +488,6 @@ p {
 }
 
 .logo {
-  color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 1.5rem 0;
@@ -531,6 +546,10 @@ p {
 
 .submenu__item {
   padding: 1rem;
+}
+
+.submenu .nav__link {
+  color: #fff;
 }
 
 .carousel-item {
@@ -1450,8 +1469,8 @@ p {
 .reviews .owl-item {
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
 }
 
 .reviews .owl-item.center {
@@ -1483,7 +1502,7 @@ p {
 
 .newsletter button {
   font-size: 1.4rem;
-  background: #000;
+  background: #000 !important;
 }
 
 .footer {

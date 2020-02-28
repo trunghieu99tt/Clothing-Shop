@@ -15,7 +15,7 @@ export default class NewsLetter extends Component {
 						<div className="row">
 							<div className="col-md-6 ml-auto mr-auto">
 								<div className="text-center">
-									<h2 className="title newsletter__title">
+									<h2 className="title newsletter__title section-heading">
 										Subscribe to our Newsletter
 									</h2>
 									<p className="description newsletter__description">

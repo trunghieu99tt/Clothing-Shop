@@ -21,10 +21,13 @@ export default class BestSeller extends Component {
 			"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";
 
 		return (
-			<section className="best-seller margin-bottom-8">
-				<h1 className="text-center margin-bottom-3 section-heading">
+			<section className="best-seller margin-bottom-5 text-center">
+				<h1 className="text-center margin-bottom-2 section-heading">
 					Best Seller
 				</h1>
+				<h2 className="margin-bottom-3">
+					Check out the best-seller items
+				</h2>
 				<div className="best-seller-items">
 					{[...Array(14)].map((item, index) => {
 						return (

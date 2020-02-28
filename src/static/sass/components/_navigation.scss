@@ -1,7 +1,7 @@
 .nav-wrapper {
 	position: sticky;
 	top: 0;
-	background: #000;
+	background: #fff;
 	z-index: 100;
 }
 
@@ -20,8 +20,6 @@
 	}
 
 	&:hover {
-		color: #fff;
-
 		&::after {
 			transform: scaleX(1);
 		}
@@ -49,10 +47,10 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		color: #fff;
-		font-size: 1.3rem;
+		color: #000;
 		position: relative;
 		padding-bottom: 1rem;
+		font-size: 1.6rem;
 
 		@extend %hoverLink;
 	}
@@ -156,7 +154,6 @@
 }
 
 .logo {
-	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	padding: 1.5rem 0;
@@ -211,5 +208,9 @@
 
 	&__item {
 		padding: 1rem;
+	}
+
+	.nav__link {
+		color: #fff;
 	}
 }

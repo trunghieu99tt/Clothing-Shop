@@ -62,7 +62,9 @@ export default class MostRecentReview extends Component {
 			>
 				<div className="row reviews__heading">
 					<div className="col-md-6 ml-auto mr-auto text-center">
-						<h1 className="reviews__title">Most Recent Review</h1>
+						<h1 className="reviews__title section-heading">
+							Most Recent Review
+						</h1>
 						<h4 className="reviews__description">
 							You need more information? Check what other persons
 							are saying about our product. They are very happy
