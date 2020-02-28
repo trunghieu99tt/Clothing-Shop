@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Clothing-Shop/static/css/main.f97e6096.chunk.css",
-    "main.js": "/Clothing-Shop/static/js/main.f9423bac.chunk.js",
-    "main.js.map": "/Clothing-Shop/static/js/main.f9423bac.chunk.js.map",
+    "main.css": "/Clothing-Shop/static/css/main.82da6933.chunk.css",
+    "main.js": "/Clothing-Shop/static/js/main.e54eef3c.chunk.js",
+    "main.js.map": "/Clothing-Shop/static/js/main.e54eef3c.chunk.js.map",
     "runtime-main.js": "/Clothing-Shop/static/js/runtime-main.5665197c.js",
     "runtime-main.js.map": "/Clothing-Shop/static/js/runtime-main.5665197c.js.map",
-    "static/css/2.e016cb85.chunk.css": "/Clothing-Shop/static/css/2.e016cb85.chunk.css",
-    "static/js/2.e313d1cb.chunk.js": "/Clothing-Shop/static/js/2.e313d1cb.chunk.js",
-    "static/js/2.e313d1cb.chunk.js.map": "/Clothing-Shop/static/js/2.e313d1cb.chunk.js.map",
+    "static/css/2.d5abd7ea.chunk.css": "/Clothing-Shop/static/css/2.d5abd7ea.chunk.css",
+    "static/js/2.d66370c6.chunk.js": "/Clothing-Shop/static/js/2.d66370c6.chunk.js",
+    "static/js/2.d66370c6.chunk.js.map": "/Clothing-Shop/static/js/2.d66370c6.chunk.js.map",
     "index.html": "/Clothing-Shop/index.html",
-    "precache-manifest.44569b43a3b63384c49ce8c8da55f876.js": "/Clothing-Shop/precache-manifest.44569b43a3b63384c49ce8c8da55f876.js",
+    "precache-manifest.b4052d481d375190441a7458fce53846.js": "/Clothing-Shop/precache-manifest.b4052d481d375190441a7458fce53846.js",
     "service-worker.js": "/Clothing-Shop/service-worker.js",
-    "static/css/2.e016cb85.chunk.css.map": "/Clothing-Shop/static/css/2.e016cb85.chunk.css.map",
-    "static/css/main.f97e6096.chunk.css.map": "/Clothing-Shop/static/css/main.f97e6096.chunk.css.map",
-    "static/js/2.e313d1cb.chunk.js.LICENSE.txt": "/Clothing-Shop/static/js/2.e313d1cb.chunk.js.LICENSE.txt"
+    "static/css/2.d5abd7ea.chunk.css.map": "/Clothing-Shop/static/css/2.d5abd7ea.chunk.css.map",
+    "static/css/main.82da6933.chunk.css.map": "/Clothing-Shop/static/css/main.82da6933.chunk.css.map",
+    "static/js/2.d66370c6.chunk.js.LICENSE.txt": "/Clothing-Shop/static/js/2.d66370c6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5665197c.js",
-    "static/css/2.e016cb85.chunk.css",
-    "static/js/2.e313d1cb.chunk.js",
-    "static/css/main.f97e6096.chunk.css",
-    "static/js/main.f9423bac.chunk.js"
+    "static/css/2.d5abd7ea.chunk.css",
+    "static/js/2.d66370c6.chunk.js",
+    "static/css/main.82da6933.chunk.css",
+    "static/js/main.e54eef3c.chunk.js"
   ]
 }
