@@ -13,8 +13,8 @@ export default class Footer extends Component {
 		});
 
 		return (
-			<footer class="footer footer-black footer-big">
-				<div class="container">
+			<footer className="footer footer-black footer-big">
+				<div className="container">
 					<div className="footer-content">
 						<div className="contact-infor--footer">
 							<h2 className="footer__heading">About Us</h2>
@@ -48,7 +48,7 @@ export default class Footer extends Component {
 						</div>
 					</div>
 					<hr />
-					<ul class="float-left">
+					<ul className="float-left">
 						<li>
 							<a href="#pablo">Blog</a>
 						</li>
@@ -65,7 +65,7 @@ export default class Footer extends Component {
 							<a href="#pablo">Contact Us</a>
 						</li>
 					</ul>
-					<div class="copyright float-right">
+					<div className="copyright float-right">
 						<p>Copyright © 2020 Rikikduo All Rights Reserved.</p>
 					</div>
 				</div>

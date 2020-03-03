@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SHOP_DATA from "../shop.data";
 import { Link } from "react-router-dom";
 
 class Navigation extends Component {
@@ -17,33 +18,14 @@ class Navigation extends Component {
 					url: "/shop",
 					submenu: {
 						parentId: 2,
-						data: [
-							{
-								id: 1,
-								name: "Hats",
-								url: "/hats"
-							},
-							{
-								id: 2,
-								name: "jackets",
-								url: "/jackets"
-							},
-							{
-								id: 3,
-								name: "sneakers",
-								url: "/sneakers"
-							},
-							{
-								id: 4,
-								name: "womens",
-								url: "/womens"
-							},
-							{
-								id: 5,
-								name: "mens",
-								url: "/mens"
-							}
-						]
+						data: SHOP_DATA.map(({ id, title, routeName }) => {
+							const obj = {
+								id,
+								name: title,
+								routeName
+							};
+							return obj;
+						})
 					}
 				},
 				{
@@ -63,21 +45,22 @@ class Navigation extends Component {
 	toggleDropdown = event => {
 		const menuList = document.querySelectorAll(".nav-small__link");
 		const subMenuList = document.querySelectorAll(".submenu__list");
-
-		console.log(event);
-
-		console.log(subMenuList);
-		Array.from(subMenuList).map(e => console.log(e.parentElement));
 	};
 
 	render() {
 		const { dataMenu } = this.state;
 
+		console.log(dataMenu);
+
+		console.log(SHOP_DATA);
+
 		return (
 			<React.Fragment>
 				<div className="nav-wrapper">
 					<nav className="nav container">
-						<h1 className="logo">Logo here</h1>
+						<Link to="/">
+							<h1 className="logo">Logo here</h1>
+						</Link>
 
 						<ul className="nav__list">
 							{dataMenu &&
@@ -105,14 +88,12 @@ class Navigation extends Component {
 															submenu.data.map(
 																({
 																	name,
-																	url,
+																	routeName,
 																	id
 																}) => (
 																	<li className="submenu__item">
 																		<Link
-																			to={
-																				url
-																			}
+																			to={`${url}/${routeName}`}
 																			className="nav__link"
 																			key={`submenu-item-${id}`}
 																		>
@@ -150,7 +131,7 @@ class Navigation extends Component {
 					name="checkbox"
 					id="toggle-nav"
 				></input>
-				<label for="toggle-nav" className="nav__toggle-btn">
+				<label htmlFor="toggle-nav" className="nav__toggle-btn">
 					<span className="nav__icon">&nbsp;</span>
 				</label>
 

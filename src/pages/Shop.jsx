@@ -10,6 +10,8 @@ export default class Shop extends Component {
 	render() {
 		const { shopData } = this.state;
 
+		const { match } = this.props;
+
 		const collections =
 			shopData &&
 			shopData.length &&
@@ -17,6 +19,7 @@ export default class Shop extends Component {
 				return (
 					<ShopCollectionComponent
 						key={`collection-item-${id}`}
+						preRoute={match}
 						{...othersProps}
 					/>
 				);

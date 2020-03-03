@@ -1,0 +1,24 @@
+.collection-page {
+	text-align: center;
+
+	&__heading {
+		margin-top: 3rem;
+		text-align: center;
+		text-transform: capitalize;
+	}
+
+	&__items {
+		margin: 5rem 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-gap: 30px;
+
+		.item-card-2__img {
+			height: 30rem;
+
+			@include respond(tab-port) {
+				height: 40rem;
+			}
+		}
+	}
+}

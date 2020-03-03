@@ -2,15 +2,24 @@ import React, { Component } from "react";
 
 export default class ProductPopUp extends Component {
 	render() {
-		const { hideProductPopUp, show } = this.props;
+		const { hideProductPopUp, show, data } = this.props;
 
-		const img =
-			"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";
+		const { imageUrl, name, id, price } = data;
+
+		// const img =
+		// 	"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";
 		return (
-			<div className={`product-popup ${show ? "showProductPopUp" : ""}`}>
+			<div
+				className={`product-popup ${show ? "showProductPopUp" : ""}`}
+				key={id}
+			>
 				<div className="product-popup__content">
 					<figure className="product-popup__left">
-						<img className="product-popup__img" src={img} alt="" />
+						<img
+							className="product-popup__img"
+							src={imageUrl}
+							alt=""
+						/>
 					</figure>
 
 					<div className="product-popup__right">
@@ -21,9 +30,9 @@ export default class ProductPopUp extends Component {
 							x
 						</p>
 						<h2 className="product-popup__name section-heading">
-							Product Name
+							{name}
 						</h2>
-						<p className="product-popup__price">$99.99</p>
+						<p className="product-popup__price">${price}</p>
 						<div className="product-popup__description">
 							<p>
 								Lorem ipsum dolor sit amet consectetur

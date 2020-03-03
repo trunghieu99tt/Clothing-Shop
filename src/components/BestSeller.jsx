@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import ProductPopUp from "./ProductPopUp";
+import SHOP_DATA from "../shop.data";
+import { getItemList } from "./Helper";
 
 export default class BestSeller extends Component {
 	state = {
-		showPopup: false
+		showPopup: false,
+		clickedItem: ""
 	};
 
-	showProductPopUp = () => {
-		this.setState({ showPopup: true });
+	showProductPopUp = item => {
+		this.setState({ showPopup: true, clickedItem: item });
 	};
 
 	hideProductPopUp = () => {
@@ -17,8 +20,12 @@ export default class BestSeller extends Component {
 	render() {
 		const { showPopup } = this.state;
 
-		const img =
-			"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";
+		console.log(SHOP_DATA);
+
+		const productItems = getItemList(SHOP_DATA);
+
+		// const img =
+		// 	"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";
 
 		return (
 			<section className="best-seller margin-bottom-5 text-center">
@@ -29,27 +36,35 @@ export default class BestSeller extends Component {
 					Check out the best-seller items
 				</h2>
 				<div className="best-seller-items">
-					{[...Array(14)].map((item, index) => {
-						return (
-							<figure
-								className={`best-seller__item best-seller__item--${index +
-									1}`}
-								onClick={this.showProductPopUp}
-							>
-								<img
-									className="best-seller__item__img"
-									src={img}
-									alt=""
-								/>
+					{productItems &&
+						productItems
+							.slice(0, Math.min(14, productItems.length))
+							.map((item, index) => {
+								const { name, imageUrl } = item;
 
-								<figcaption className="best-seller__item__caption">
-									Item Name
-								</figcaption>
-							</figure>
-						);
-					})}
+								return (
+									<figure
+										className={`best-seller__item best-seller__item--${index +
+											1}`}
+										onClick={() =>
+											this.showProductPopUp(item)
+										}
+									>
+										<img
+											className="best-seller__item__img"
+											src={imageUrl}
+											alt=""
+										/>
+
+										<figcaption className="best-seller__item__caption">
+											{name}
+										</figcaption>
+									</figure>
+								);
+							})}
 				</div>
 				<ProductPopUp
+					data={this.state.clickedItem}
 					hideProductPopUp={this.hideProductPopUp}
 					show={showPopup}
 				/>

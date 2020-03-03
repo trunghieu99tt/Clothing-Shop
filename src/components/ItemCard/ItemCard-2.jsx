@@ -3,7 +3,20 @@ import { Link } from "react-router-dom";
 import { Icon } from "antd";
 
 const ItemCard2 = props => {
-	const { id, name, imageUrl, price, isSoldOut, routeName } = props;
+	const {
+		id,
+		name,
+		imageUrl,
+		price,
+		isSoldOut,
+		routeName,
+		preRoute,
+		isShopPage
+	} = props;
+
+	const path = isShopPage
+		? `${(preRoute && preRoute.path) || ""}/${routeName}/${id}`
+		: `${(preRoute && preRoute.url) || ""}/${id}`;
 
 	return (
 		<div className="item-card-2">
@@ -11,7 +24,7 @@ const ItemCard2 = props => {
 				<div className="sold-out">
 					<span>{isSoldOut ? "Hết hàng" : "Còn hàng"}</span>
 				</div>
-				<Link to={`${routeName}/${id}`}>
+				<Link to={path}>
 					<img
 						className="item-card-2__img--front"
 						alt="item-card-pt--front"
@@ -25,14 +38,13 @@ const ItemCard2 = props => {
 				</Link>
 				<div className="item-card-2__buttons">
 					<Icon type="plus" />
-					<Icon type="eye" />
 					<Icon type="heart" />
 				</div>
 			</div>
 
 			<div className="item-card-2__content">
 				<h3 className="item-card-2__name">
-					<Link to={`${routeName}/${id}`}>
+					<Link to={path}>
 						<p>{name || ""}</p>
 					</Link>
 				</h3>
