@@ -56,7 +56,7 @@ export default class MostRecentReview extends Component {
 			<section
 				className="reviews margin-bottom-3 testimonials-1 section-image"
 				style={{
-					backgroundImage: `url('./assets/img/dg2.jpg')`,
+					backgroundImage: `url(${require("../static/img/dg2.jpg")})`,
 					backgroundAttachment: "fixed"
 				}}
 			>
