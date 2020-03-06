@@ -50,9 +50,9 @@ class Navigation extends Component {
 	render() {
 		const { dataMenu } = this.state;
 
-		console.log(dataMenu);
+		// console.log(dataMenu);
 
-		console.log(SHOP_DATA);
+		// console.log(SHOP_DATA);
 
 		return (
 			<React.Fragment>

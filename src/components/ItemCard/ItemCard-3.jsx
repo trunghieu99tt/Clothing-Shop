@@ -7,8 +7,8 @@ const ItemCard3 = props => {
 	console.log(routeName);
 
 	return (
-		<div class="card card-product">
-			<div class="card-header card-header-image">
+		<div class="card card-product item-card-3">
+			<div class="card-header card-header-image item-card-3__img">
 				<Link to={`${id}`}>
 					<img class="img" src={imageUrl} alt="product" />
 				</Link>

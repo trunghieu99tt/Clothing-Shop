@@ -1443,6 +1443,13 @@ p {
   padding: 5px 10px;
 }
 
+.item-card-3__img img {
+  height: 25rem;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .most-recent {
   display: -ms-grid;
   display: grid;
@@ -1608,6 +1615,19 @@ p {
   grid-gap: 30px;
 }
 
+.background-layer {
+  height: 50vh;
+}
+
+.background-layer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
+}
+
 .footer {
   text-align: left;
   padding-top: 5rem;
@@ -1673,6 +1693,14 @@ p {
   padding: 0;
 }
 
+.grid-4-columns {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 15px;
+}
+
 .shop-page {
   margin-top: 5rem;
   text-align: center;
@@ -1705,19 +1733,6 @@ p {
   .collection-page__items .item-card-2__img {
     height: 40rem;
   }
-}
-
-.product-detail__backgroundLayer {
-  height: 50vh;
-}
-
-.product-detail__backgroundLayer img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -webkit-filter: brightness(0.7);
-          filter: brightness(0.7);
 }
 
 .product-detail__content {
@@ -1776,5 +1791,57 @@ p {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.profile-page__user-infor {
+  position: relative;
+  z-index: 2;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
+  margin-top: -20rem;
+  background: #fff;
+  border-radius: 20px;
+  min-height: 50vh;
+}
+
+.profile-page__user-most-recent-bought {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.profile-page__user-most-recent-bought__heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-page__user-most-recent-added-wishlist {
+  margin-top: 5px;
+}
+
+.profile-page__user-most-recent-added-wishlist__heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-page .user__image {
+  margin: 0 auto;
+}
+
+.profile-page .user__image img {
+  margin-top: -5rem;
+  width: 200px;
+  height: 200px;
+  -webkit-box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.5);
+          box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.5);
+}
+
+.profile-page .user__name h3 {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.profile-page .user__sumary {
+  width: 50%;
+  margin: 5rem auto;
 }
 /*# sourceMappingURL=main.css.map */

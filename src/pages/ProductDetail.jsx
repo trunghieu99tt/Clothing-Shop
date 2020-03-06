@@ -10,13 +10,7 @@ export default class ProductDetail extends Component {
 	render() {
 		const { match } = this.props;
 		const { shopData } = this.state;
-
-		console.log(shopData);
-
 		const { collectionID, itemID } = match && match.params;
-
-		console.log(collectionID, itemID);
-
 		const filteredCollection =
 			shopData &&
 			shopData.length &&
@@ -46,7 +40,7 @@ export default class ProductDetail extends Component {
 
 		return (
 			<section className="product-detail">
-				<div className="product-detail__backgroundLayer">
+				<div className="background-layer">
 					<img src={require("../static/img/bg6.jpg")} alt="" />
 				</div>
 
@@ -288,7 +282,6 @@ export default class ProductDetail extends Component {
 							relatedItems
 								.slice(0, Math.min(4, relatedItems.length))
 								.map(item => {
-									console.log(item);
 									return (
 										<ItemCard3
 											routeName={collectionID}

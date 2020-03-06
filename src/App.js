@@ -11,6 +11,7 @@ import Homepage from "./pages/HomePage";
 import Shop from "./pages/Shop";
 import Collection from "./pages/Collection";
 import ProductDetail from "./pages/ProductDetail";
+import Profile from "./pages/Profile";
 
 class App extends Component {
 	render() {
@@ -29,6 +30,7 @@ class App extends Component {
 						path="/shop/:collectionID/:itemID"
 						component={ProductDetail}
 					/>
+					<Route exact path="/user" component={Profile}></Route>
 				</Switch>
 			</React.Fragment>
 		);

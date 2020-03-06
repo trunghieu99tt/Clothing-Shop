@@ -1,0 +1,56 @@
+.profile-page {
+	&__user {
+		&-infor {
+			position: relative;
+			z-index: 2;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
+			margin-top: -20rem;
+			background: #fff;
+			border-radius: 20px;
+			min-height: 50vh;
+		}
+		&-most-recent-bought {
+			margin-top: 5rem;
+			text-align: center;
+
+			&__heading {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+		}
+
+		&-most-recent-added-wishlist {
+			margin-top: 5px;
+
+			&__heading {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+		}
+	}
+
+	.user {
+		&__image {
+			margin: 0 auto;
+
+			img {
+				margin-top: -5rem;
+				width: 200px;
+				height: 200px;
+				box-shadow: 0px 0px 30px rgba(256, 256, 256, 0.5);
+			}
+		}
+
+		&__name {
+			h3 {
+				font-weight: bold;
+				letter-spacing: 1px;
+			}
+		}
+
+		&__sumary {
+			width: 50%;
+			margin: 5rem auto;
+		}
+	}
+}

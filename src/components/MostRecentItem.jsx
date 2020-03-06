@@ -7,7 +7,7 @@ export default class MostRecentItem extends Component {
 	render() {
 		const items = getItemList(SHOP_DATA);
 
-		console.log("items: ", items);
+		// console.log("items: ", items);
 
 		return (
 			<section className="container-fluid most-recent-container margin-bottom-8 ">
