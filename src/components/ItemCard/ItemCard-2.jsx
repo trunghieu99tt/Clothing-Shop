@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "antd";
+import { connect } from "react-redux";
+
+import { addItem } from "../../redux/cart/cart.action";
 
 const ItemCard2 = props => {
 	const {
-		id,
-		name,
-		imageUrl,
-		price,
+		item: { id, name, imageUrl, price, routeName },
+		item,
 		isSoldOut,
-		routeName,
 		preRoute,
-		isShopPage
+		isShopPage,
+		increaseItem
 	} = props;
 
 	const path = isShopPage
@@ -37,7 +38,7 @@ const ItemCard2 = props => {
 					/>
 				</Link>
 				<div className="item-card-2__buttons">
-					<Icon type="plus" />
+					<Icon type="plus" onClick={() => increaseItem(item)} />
 					<Icon type="heart" />
 				</div>
 			</div>
@@ -54,4 +55,8 @@ const ItemCard2 = props => {
 	);
 };
 
-export default ItemCard2;
+const mapDispatchToProps = dispatch => ({
+	increaseItem: item => dispatch(addItem(item))
+});
+
+export default connect(null, mapDispatchToProps)(ItemCard2);

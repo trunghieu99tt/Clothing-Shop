@@ -33,7 +33,7 @@ export default class Collection extends Component {
 					<ItemCard2
 						preRoute={match}
 						routeName={collectionName}
-						{...item}
+						item={item}
 					/>
 				);
 			});

@@ -2,16 +2,25 @@ import React, { Component } from "react";
 import SHOP_DATA from "../shop.data";
 import { getItemList, shuffle_list } from "../components/Helper";
 import ItemCard3 from "../components/ItemCard/ItemCard-3";
+import ItemCard4 from "../components/ItemCard/ItemCard-4";
 
-export default class Profile extends Component {
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import { selectCartItems, selectCartTotal } from "../redux/cart/cart.selector";
+
+class Profile extends Component {
 	render() {
-		const listItems1 = shuffle_list(getItemList(SHOP_DATA));
+		const { cartItems, total } = this.props;
+
+		// console.log("cartItems", cartItems);
+
 		const listItems2 = shuffle_list(getItemList(SHOP_DATA));
 
 		const mostRecentBought =
-			listItems1 &&
-			listItems1.length > 0 &&
-			listItems1.slice(0, Math.min(4, listItems1.length)).map(item => {
+			cartItems &&
+			cartItems.length > 0 &&
+			cartItems.slice(0, Math.min(4, cartItems.length)).map(item => {
 				return <ItemCard3 {...item} />;
 			});
 
@@ -20,6 +29,13 @@ export default class Profile extends Component {
 			listItems2.length > 0 &&
 			listItems2.slice(0, Math.min(4, listItems2.length)).map(item => {
 				return <ItemCard3 {...item} />;
+			});
+
+		const shoppingCarts =
+			cartItems &&
+			cartItems.length > 0 &&
+			cartItems.slice(0, Math.min(10, listItems3.length)).map(item => {
+				return <ItemCard4 item={item} />;
 			});
 
 		return (
@@ -64,6 +80,63 @@ export default class Profile extends Component {
 							</div>
 						</div>
 					</div>
+
+					{shoppingCarts && shoppingCarts.length > 0 ? (
+						<div className="shopping-cart table-responsive">
+							<h1 className="shopping-cart__heading section-heading">
+								Shoppping Cart
+							</h1>
+							<table className="table table-shopping">
+								<thead>
+									<tr>
+										<th class="text-center"></th>
+										<th>
+											<p>Product</p>
+										</th>
+										<th class="text-right">
+											<p>Price</p>
+										</th>
+										<th class="text-right">
+											<p>Quantity</p>
+										</th>
+										<th class="text-right">
+											<p>Amount</p>
+										</th>
+										<th></th>
+									</tr>
+								</thead>
+
+								<tbody>
+									{shoppingCarts}
+									<tr>
+										<td class="td-total">
+											<p>Total</p>
+										</td>
+										<td colspan="1" class="td-price">
+											<p>
+												<small>$</small>
+												{total}
+											</p>
+										</td>
+										<td colspan="1"></td>
+										<td colspan="2" class="text-right">
+											<button
+												type="button"
+												class="btn btn-info btn-round"
+											>
+												Complete Purchase{" "}
+												<i class="material-icons">
+													keyboard_arrow_right
+												</i>
+												<div class="ripple-container"></div>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					) : null}
+
 					<div className="profile-page__user-most-recent-bought">
 						<h1 className="profile-page__user-most-recent-bought__heading section-heading">
 							Most Recent Bought Items
@@ -86,3 +159,10 @@ export default class Profile extends Component {
 		);
 	}
 }
+
+const mapStateToProps = createStructuredSelector({
+	cartItems: selectCartItems,
+	total: selectCartTotal
+});
+
+export default connect(mapStateToProps)(Profile);

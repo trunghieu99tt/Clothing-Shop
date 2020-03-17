@@ -1450,6 +1450,11 @@ p {
      object-fit: cover;
 }
 
+.item-card-4 .material-icons {
+  padding: 1rem;
+  line-height: 2;
+}
+
 .most-recent {
   display: -ms-grid;
   display: grid;
@@ -1835,6 +1840,10 @@ p {
           box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.5);
 }
 
+.profile-page .user__name {
+  margin-top: 20px;
+}
+
 .profile-page .user__name h3 {
   font-weight: bold;
   letter-spacing: 1px;
@@ -1843,5 +1852,18 @@ p {
 .profile-page .user__sumary {
   width: 50%;
   margin: 5rem auto;
+}
+
+.profile-page .shopping-cart {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.profile-page .shopping-cart__heading {
+  margin-bottom: 5rem;
+}
+
+.profile-page .table {
+  text-align: left;
 }
 /*# sourceMappingURL=main.css.map */

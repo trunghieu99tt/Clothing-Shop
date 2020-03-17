@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const ItemCard3 = props => {
 	const { id, name, imageUrl, price, routeName } = props;
 
-	console.log(routeName);
+	console.log("routeName", routeName);
 
 	return (
 		<div class="card card-product item-card-3">
 			<div class="card-header card-header-image item-card-3__img">
-				<Link to={`${id}`}>
+				<Link to={`/shop/${routeName}/${id}`}>
 					<img class="img" src={imageUrl} alt="product" />
 				</Link>
 

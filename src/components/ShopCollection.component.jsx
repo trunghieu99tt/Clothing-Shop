@@ -16,7 +16,7 @@ const ShopCollectionComponent = props => {
 					isShopPage
 					routeName={routeName}
 					preRoute={preRoute}
-					{...item}
+					item={item}
 				/>
 			);
 		});
