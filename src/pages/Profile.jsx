@@ -34,7 +34,7 @@ class Profile extends Component {
 		const shoppingCarts =
 			cartItems &&
 			cartItems.length > 0 &&
-			cartItems.slice(0, Math.min(10, listItems3.length)).map(item => {
+			cartItems.slice(0, Math.min(10, cartItems.length)).map(item => {
 				return <ItemCard4 item={item} />;
 			});
 
