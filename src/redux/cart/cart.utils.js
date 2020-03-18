@@ -1,7 +1,4 @@
 export const addItemToCart = (cartItems, cartItemToAdd) => {
-	console.log("cartItems", cartItems);
-	console.log("cartItemToAdd", cartItemToAdd);
-
 	const existingCartItem = cartItems.find(
 		cartItem => cartItem.id === cartItemToAdd.id
 	);
@@ -26,6 +23,18 @@ export const decreaseItemFromCart = (cartItems, cartItemToDecrease) => {
 			  }
 			: cartItem
 	);
-
 	return newCartItems.filter(item => item.quantity > 0);
+};
+
+export const addItemToWishList = (wishlistItems, cartItemToAdd) => {
+	console.log("wishlistItems", wishlistItems);
+	const existingWishlistItem =
+		wishlistItems &&
+		wishlistItems.find(
+			wishlistItem => wishlistItem.id === cartItemToAdd.id
+		);
+	if (!existingWishlistItem) {
+		return [...wishlistItems, cartItemToAdd];
+	}
+	return wishlistItems;
 };

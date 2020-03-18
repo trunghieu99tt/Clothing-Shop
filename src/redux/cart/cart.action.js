@@ -12,3 +12,7 @@ export const clearItemFromCart = item => ({
 	type: cartActionTypes.CLEAR_ITEM_FROM_CART,
 	payload: item
 });
+export const addItemToWishlist = item => ({
+	type: cartActionTypes.ADD_ITEM_TO_WISHLIST,
+	payload: item
+});

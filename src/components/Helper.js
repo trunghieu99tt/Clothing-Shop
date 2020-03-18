@@ -1,4 +1,4 @@
-const getItemList = shopData => {
+const getItemsList = shopData => {
 	return shopData
 		.map(data => {
 			const { routeName } = data;
@@ -20,4 +20,4 @@ const shuffle_list = list => {
 	return list;
 };
 
-export { getItemList, shuffle_list };
+export { getItemsList, shuffle_list };

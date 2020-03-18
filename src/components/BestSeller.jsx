@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProductPopUp from "./ProductPopUp";
 import SHOP_DATA from "../shop.data";
-import { getItemList } from "./Helper";
+import { getItemsList } from "./Helper";
 
 export default class BestSeller extends Component {
 	state = {
@@ -22,7 +22,7 @@ export default class BestSeller extends Component {
 
 		console.log(SHOP_DATA);
 
-		const productItems = getItemList(SHOP_DATA);
+		const productItems = getItemsList(SHOP_DATA);
 
 		// const img =
 		// 	"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";

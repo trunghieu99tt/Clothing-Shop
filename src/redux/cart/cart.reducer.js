@@ -1,10 +1,14 @@
 import cartActionTypes from "./cart.types";
 
-import { addItemToCart, decreaseItemFromCart } from "./cart.utils";
+import {
+	addItemToCart,
+	decreaseItemFromCart,
+	addItemToWishList
+} from "./cart.utils";
 
 const INITIAL_STATE = {
-	hidden: true,
-	cartItems: []
+	cartItems: [],
+	wistlistItems: []
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -25,6 +29,14 @@ const cartReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				cartItems: decreaseItemFromCart(state.cartItems, action.payload)
+			};
+		case cartActionTypes.ADD_ITEM_TO_WISHLIST:
+			return {
+				...state,
+				wistlistItems: addItemToWishList(
+					state.wistlistItems,
+					action.payload
+				)
 			};
 		default:
 			return state;

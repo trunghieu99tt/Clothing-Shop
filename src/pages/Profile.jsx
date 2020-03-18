@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 import SHOP_DATA from "../shop.data";
-import { getItemList, shuffle_list } from "../components/Helper";
+import { getItemsList, shuffle_list } from "../components/Helper";
 import ItemCard3 from "../components/ItemCard/ItemCard-3";
 import ItemCard4 from "../components/ItemCard/ItemCard-4";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectCartItems, selectCartTotal } from "../redux/cart/cart.selector";
+import {
+	selectCartItems,
+	selectCartTotal,
+	selectWishlistItems
+} from "../redux/cart/cart.selector";
+import { decreaseItem } from "../redux/cart/cart.action";
 
 class Profile extends Component {
 	render() {
-		const { cartItems, total } = this.props;
+		const { cartItems, total, wishListItems } = this.props;
 
 		// console.log("cartItems", cartItems);
 
-		const listItems2 = shuffle_list(getItemList(SHOP_DATA));
+		const listItems2 = shuffle_list(getItemsList(SHOP_DATA));
 
 		const mostRecentBought =
 			cartItems &&
@@ -25,9 +30,9 @@ class Profile extends Component {
 			});
 
 		const mostRecentAddedWishlist =
-			listItems2 &&
-			listItems2.length > 0 &&
-			listItems2.slice(0, Math.min(4, listItems2.length)).map(item => {
+			wishListItems &&
+			wishListItems.length > 0 &&
+			wishListItems.slice(0, Math.min(4, listItems2.length)).map(item => {
 				return <ItemCard3 {...item} />;
 			});
 
@@ -136,24 +141,28 @@ class Profile extends Component {
 							</table>
 						</div>
 					) : null}
-
-					<div className="profile-page__user-most-recent-bought">
-						<h1 className="profile-page__user-most-recent-bought__heading section-heading">
-							Most Recent Bought Items
-						</h1>
-						<div className="profile-page__user-most-recent-bought__items grid-4-columns">
-							{mostRecentBought}
+					{mostRecentBought && mostRecentBought.length > 0 ? (
+						<div className="profile-page__user-most-recent-bought">
+							<h1 className="profile-page__user-most-recent-bought__heading section-heading">
+								Most Recent Bought Items
+							</h1>
+							<div className="profile-page__user-most-recent-bought__items grid-4-columns">
+								{mostRecentBought}
+							</div>
 						</div>
-					</div>
+					) : null}
 
-					<div className="profile-page__user-most-recent-added-wishlist text-center">
-						<h1 className="profile-page__user-most-recent-added-wishlist__heading section-heading">
-							Most Recent Added To Wishlist
-						</h1>
-						<div className="profile-page__user-most-recent-added-wishlist__items grid-4-columns">
-							{mostRecentAddedWishlist}
+					{mostRecentAddedWishlist &&
+					mostRecentAddedWishlist.length > 0 ? (
+						<div className="profile-page__user-most-recent-added-wishlist text-center">
+							<h1 className="profile-page__user-most-recent-added-wishlist__heading section-heading">
+								Most Recent Added To Wishlist
+							</h1>
+							<div className="profile-page__user-most-recent-added-wishlist__items grid-4-columns">
+								{mostRecentAddedWishlist}
+							</div>
 						</div>
-					</div>
+					) : null}
 				</div>
 			</section>
 		);
@@ -162,7 +171,8 @@ class Profile extends Component {
 
 const mapStateToProps = createStructuredSelector({
 	cartItems: selectCartItems,
-	total: selectCartTotal
+	total: selectCartTotal,
+	wishListItems: selectWishlistItems
 });
 
 export default connect(mapStateToProps)(Profile);

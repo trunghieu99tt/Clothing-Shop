@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
-import { addItem, decreaseItem } from "../../redux/cart/cart.action";
+import {
+	addItem,
+	decreaseItem,
+	clearItemFromCart
+} from "../../redux/cart/cart.action";
 
 const ItemCard4 = props => {
 	const {
 		item: { id, name, imageUrl, price, quantity, routeName },
 		item,
 		increaseQuantity,
-		decreaseQuantity
+		decreaseQuantity,
+		clearItem
 	} = props;
-
-	console.log("quantity", quantity);
 
 	return (
 		<tr className="item-card-4">
@@ -67,9 +70,9 @@ const ItemCard4 = props => {
 					title=""
 					class="btn btn-link"
 					data-original-title="Remove item"
+					onClick={() => clearItem(item)}
 				>
 					<i class="material-icons">close</i>
-					<div class="ripple-container"></div>
 				</button>
 			</td>
 		</tr>
@@ -78,7 +81,8 @@ const ItemCard4 = props => {
 
 const mapDispatchToProps = dispatch => ({
 	increaseQuantity: item => dispatch(addItem(item)),
-	decreaseQuantity: item => dispatch(decreaseItem(item))
+	decreaseQuantity: item => dispatch(decreaseItem(item)),
+	clearItem: item => dispatch(clearItemFromCart(item))
 });
 
 export default connect(null, mapDispatchToProps)(ItemCard4);

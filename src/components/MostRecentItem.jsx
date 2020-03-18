@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import ItemCard1 from "./ItemCard/ItemCard-1";
-import { getItemList } from "./Helper";
+import { getItemsList } from "./Helper";
 import SHOP_DATA from "../shop.data";
 
 export default class MostRecentItem extends Component {
 	render() {
-		const items = getItemList(SHOP_DATA);
+		const items = getItemsList(SHOP_DATA);
 
 		// console.log("items: ", items);
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "antd";
 import { connect } from "react-redux";
 
-import { addItem } from "../../redux/cart/cart.action";
+import { addItem, addItemToWishlist } from "../../redux/cart/cart.action";
 
 const ItemCard2 = props => {
 	const {
@@ -12,7 +12,8 @@ const ItemCard2 = props => {
 		isSoldOut,
 		preRoute,
 		isShopPage,
-		increaseItem
+		increaseItem,
+		addItemToWishList
 	} = props;
 
 	const path = isShopPage
@@ -39,7 +40,10 @@ const ItemCard2 = props => {
 				</Link>
 				<div className="item-card-2__buttons">
 					<Icon type="plus" onClick={() => increaseItem(item)} />
-					<Icon type="heart" />
+					<Icon
+						type="heart"
+						onClick={() => addItemToWishList(item)}
+					/>
 				</div>
 			</div>
 
@@ -56,7 +60,8 @@ const ItemCard2 = props => {
 };
 
 const mapDispatchToProps = dispatch => ({
-	increaseItem: item => dispatch(addItem(item))
+	increaseItem: item => dispatch(addItem(item)),
+	addItemToWishList: item => dispatch(addItemToWishlist(item))
 });
 
 export default connect(null, mapDispatchToProps)(ItemCard2);
