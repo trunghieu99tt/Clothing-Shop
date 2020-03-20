@@ -1,58 +1,56 @@
 import React, { Component } from "react";
-import SHOP_DATA from "../shop.data";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { selectShopData } from "../redux/shop/shop.selector";
 
 class Navigation extends Component {
 	constructor() {
 		super();
-		this.state = {
-			dataMenu: [
-				{
-					id: 1,
-					name: "home",
-					url: "/"
-				},
-				{
-					id: 2,
-					name: "shop",
-					url: "/shop",
-					submenu: {
-						parentId: 2,
-						data: SHOP_DATA.map(({ id, title, routeName }) => {
-							const obj = {
-								id,
-								name: title,
-								routeName
-							};
-							return obj;
-						})
-					}
-				},
-				{
-					id: 3,
-					name: "contact us",
-					url: "/contact"
-				},
-				{
-					id: 4,
-					name: "profile",
-					url: "/user"
-				}
-			]
-		};
+		this.state = {};
 	}
 
-	toggleDropdown = event => {
-		const menuList = document.querySelectorAll(".nav-small__link");
-		const subMenuList = document.querySelectorAll(".submenu__list");
-	};
+	// toggleDropdown = event => {
+	// 	const menuList = document.querySelectorAll(".nav-small__link");
+	// 	const subMenuList = document.querySelectorAll(".submenu__list");
+	// };
 
 	render() {
-		const { dataMenu } = this.state;
+		const { shopData } = this.props;
 
-		// console.log(dataMenu);
-
-		// console.log(SHOP_DATA);
+		const dataMenu = [
+			{
+				id: 1,
+				name: "home",
+				url: "/"
+			},
+			{
+				id: 2,
+				name: "shop",
+				url: "/shop",
+				submenu: {
+					parentId: 2,
+					data: shopData.map(({ id, title, routeName }) => {
+						const obj = {
+							id,
+							name: title,
+							routeName
+						};
+						return obj;
+					})
+				}
+			},
+			{
+				id: 3,
+				name: "contact us",
+				url: "/contact"
+			},
+			{
+				id: 4,
+				name: "profile",
+				url: "/user"
+			}
+		];
 
 		return (
 			<React.Fragment>
@@ -211,4 +209,8 @@ class Navigation extends Component {
 	}
 }
 
-export default Navigation;
+const mapStateToProps = state => ({
+	shopData: selectShopData(state)
+});
+
+export default connect(mapStateToProps)(Navigation);

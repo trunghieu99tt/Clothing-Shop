@@ -7,7 +7,8 @@ import { addItem, addItemToWishlist } from "../../redux/cart/cart.action";
 
 const ItemCard2 = props => {
 	const {
-		item: { id, name, imageUrl, price, routeName },
+		item: { id, name, imageUrl, price },
+		routeName,
 		item,
 		isSoldOut,
 		preRoute,

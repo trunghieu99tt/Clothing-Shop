@@ -1,13 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ItemCard1 from "./ItemCard/ItemCard-1";
-import { getItemsList } from "./Helper";
-import SHOP_DATA from "../shop.data";
 
-export default class MostRecentItem extends Component {
+import { selectItems } from "../redux/shop/shop.selector";
+
+class MostRecentItem extends Component {
 	render() {
-		const items = getItemsList(SHOP_DATA);
-
-		// console.log("items: ", items);
+		const { shopItems } = this.props;
 
 		return (
 			<section className="container-fluid most-recent-container margin-bottom-8 ">
@@ -20,10 +19,10 @@ export default class MostRecentItem extends Component {
 					</h2>
 				</div>
 				<div className="most-recent">
-					{items &&
-						items.length &&
-						items
-							.slice(0, Math.min(5, items.length))
+					{shopItems &&
+						shopItems.length &&
+						shopItems
+							.slice(0, Math.min(5, shopItems.length))
 							.map(({ id, ...otherProps }) => {
 								return (
 									<ItemCard1
@@ -38,3 +37,9 @@ export default class MostRecentItem extends Component {
 		);
 	}
 }
+
+const mapStateToProps = state => ({
+	shopItems: selectItems(state)
+});
+
+export default connect(mapStateToProps)(MostRecentItem);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SHOP_DATA from "../shop.data";
+
 import { getItemsList, shuffle_list } from "../components/Helper";
 import ItemCard3 from "../components/ItemCard/ItemCard-3";
 import ItemCard4 from "../components/ItemCard/ItemCard-4";
@@ -18,10 +18,6 @@ class Profile extends Component {
 	render() {
 		const { cartItems, total, wishListItems } = this.props;
 
-		// console.log("cartItems", cartItems);
-
-		const listItems2 = shuffle_list(getItemsList(SHOP_DATA));
-
 		const mostRecentBought =
 			cartItems &&
 			cartItems.length > 0 &&
@@ -32,9 +28,11 @@ class Profile extends Component {
 		const mostRecentAddedWishlist =
 			wishListItems &&
 			wishListItems.length > 0 &&
-			wishListItems.slice(0, Math.min(4, listItems2.length)).map(item => {
-				return <ItemCard3 {...item} />;
-			});
+			wishListItems
+				.slice(0, Math.min(4, wishListItems.length))
+				.map(item => {
+					return <ItemCard3 {...item} />;
+				});
 
 		const shoppingCarts =
 			cartItems &&

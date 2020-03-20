@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SHOP_DATA from "../shop.data";
+import SHOP_DATA from "../redux/shop/shop.data";
 import ItemCard3 from "../components/ItemCard/ItemCard-3";
 
 export default class ProductDetail extends Component {

@@ -1,25 +1,22 @@
 import React, { Component } from "react";
-import SHOP_DATA from "../shop.data";
+import { connect } from "react-redux";
+
 import ShopCollectionComponent from "../components/ShopCollection.component";
+import { selectShopData } from "../redux/shop/shop.selector";
 
-export default class Shop extends Component {
-	state = {
-		shopData: SHOP_DATA
-	};
-
+class Shop extends Component {
 	render() {
-		const { shopData } = this.state;
-
-		const { match } = this.props;
+		const { match, shopData } = this.props;
 
 		const collections =
 			shopData &&
 			shopData.length &&
-			shopData.map(({ id, ...othersProps }) => {
+			shopData.map(({ id, routeName, ...othersProps }) => {
 				return (
 					<ShopCollectionComponent
 						key={`collection-item-${id}`}
 						preRoute={match}
+						routeName={routeName}
 						{...othersProps}
 					/>
 				);
@@ -33,3 +30,9 @@ export default class Shop extends Component {
 		);
 	}
 }
+
+const mapStateToProps = state => ({
+	shopData: selectShopData(state)
+});
+
+export default connect(mapStateToProps)(Shop);

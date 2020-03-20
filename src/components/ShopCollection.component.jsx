@@ -5,6 +5,8 @@ import ItemCard2 from "./ItemCard/ItemCard-2";
 const ShopCollectionComponent = props => {
 	const { title, routeName, id, items, preRoute } = props;
 
+	// console.log("routeName", routeName);
+
 	// console.log("preRoute: ", preRoute);
 
 	const itemCards =

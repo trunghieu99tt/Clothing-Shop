@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ProductPopUp from "./ProductPopUp";
-import SHOP_DATA from "../shop.data";
-import { getItemsList } from "./Helper";
+import { selectItems } from "../redux/shop/shop.selector";
 
-export default class BestSeller extends Component {
+class BestSeller extends Component {
 	state = {
 		showPopup: false,
 		clickedItem: ""
@@ -20,12 +20,9 @@ export default class BestSeller extends Component {
 	render() {
 		const { showPopup } = this.state;
 
-		console.log(SHOP_DATA);
+		const { shopItems } = this.props;
 
-		const productItems = getItemsList(SHOP_DATA);
-
-		// const img =
-		// 	"https://grayson.qodeinteractive.com/wp-content/uploads/2016/08/home-3-slider-image-3.jpg";
+		console.log("shopItems", shopItems);
 
 		return (
 			<section className="best-seller margin-bottom-5 text-center">
@@ -36,9 +33,10 @@ export default class BestSeller extends Component {
 					Check out the best-seller items
 				</h2>
 				<div className="best-seller-items">
-					{productItems &&
-						productItems
-							.slice(0, Math.min(14, productItems.length))
+					{shopItems &&
+						shopItems.length > 0 &&
+						shopItems
+							.slice(0, Math.min(14, shopItems.length))
 							.map((item, index) => {
 								const { name, imageUrl } = item;
 
@@ -72,3 +70,9 @@ export default class BestSeller extends Component {
 		);
 	}
 }
+
+const mapStateToProps = state => ({
+	shopItems: selectItems(state)
+});
+
+export default connect(mapStateToProps)(BestSeller);
