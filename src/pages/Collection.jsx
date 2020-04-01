@@ -11,6 +11,12 @@ class Collection extends Component {
 		// console.log("match: ", match);
 		// console.log("collection", collection);
 
+		const routeName =
+			(collection &&
+				collection.title &&
+				collection.title.toLowerCase()) ||
+			"";
+
 		const collectionItems =
 			collection &&
 			collection.items &&
@@ -19,7 +25,7 @@ class Collection extends Component {
 				return (
 					<ItemCard2
 						preRoute={match}
-						routeName={collection && collection.title}
+						routeName={routeName}
 						item={item}
 					/>
 				);

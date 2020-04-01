@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import { getItemsList, shuffle_list } from "../components/Helper";
 import ItemCard3 from "../components/ItemCard/ItemCard-3";
 import ItemCard4 from "../components/ItemCard/ItemCard-4";
 
@@ -12,7 +11,8 @@ import {
 	selectCartTotal,
 	selectWishlistItems
 } from "../redux/cart/cart.selector";
-import { decreaseItem } from "../redux/cart/cart.action";
+
+// TODO: Re-style profile field
 
 class Profile extends Component {
 	render() {
@@ -22,8 +22,11 @@ class Profile extends Component {
 			cartItems &&
 			cartItems.length > 0 &&
 			cartItems.slice(0, Math.min(4, cartItems.length)).map(item => {
+				console.log("item", item);
 				return <ItemCard3 {...item} />;
 			});
+
+		console.log("wishListItems", wishListItems);
 
 		const mostRecentAddedWishlist =
 			wishListItems &&

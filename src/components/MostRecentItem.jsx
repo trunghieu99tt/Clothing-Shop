@@ -23,12 +23,11 @@ class MostRecentItem extends Component {
 						shopItems.length &&
 						shopItems
 							.slice(0, Math.min(5, shopItems.length))
-							.map(({ id, ...otherProps }) => {
+							.map(item => {
 								return (
 									<ItemCard1
-										key={id}
-										{...otherProps}
-										id={id}
+										key={item && item.id}
+										item={item}
 									/>
 								);
 							})}

@@ -11,15 +11,12 @@ const ItemCard2 = props => {
 		routeName,
 		item,
 		isSoldOut,
-		preRoute,
 		isShopPage,
 		increaseItem,
 		addItemToWishList
 	} = props;
 
-	const path = isShopPage
-		? `${(preRoute && preRoute.path) || ""}/${routeName}/${id}`
-		: `${(preRoute && preRoute.url) || ""}/${id}`;
+	const path = `/shop/${routeName}/${id}`;
 
 	return (
 		<div className="item-card-2">
@@ -40,10 +37,15 @@ const ItemCard2 = props => {
 					/>
 				</Link>
 				<div className="item-card-2__buttons">
-					<Icon type="plus" onClick={() => increaseItem(item)} />
+					<Icon
+						type="plus"
+						onClick={() => increaseItem({ ...item, routeName })}
+					/>
 					<Icon
 						type="heart"
-						onClick={() => addItemToWishList(item)}
+						onClick={() =>
+							addItemToWishList({ ...item, routeName })
+						}
 					/>
 				</div>
 			</div>

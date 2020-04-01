@@ -272,6 +272,10 @@ body {
   overflow-x: hidden;
 }
 
+i {
+  cursor: pointer;
+}
+
 h1 {
   font-size: 2.8rem;
 }
@@ -1011,6 +1015,18 @@ p {
       grid-template-rows: repeat(7, 5vw);
   grid-gap: 1.5rem;
   padding: 1.5rem;
+}
+
+@media (max-width: 37.5em) {
+  .best-seller .best-seller-items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .best-seller__item {
@@ -1807,6 +1823,7 @@ p {
   background: #fff;
   border-radius: 20px;
   min-height: 50vh;
+  margin-bottom: 5rem;
 }
 
 .profile-page__user-most-recent-bought {

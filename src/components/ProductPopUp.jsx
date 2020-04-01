@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+// TODO: Add action to add to cart and add to wishlist button
+
 export default class ProductPopUp extends Component {
 	render() {
 		const { hideProductPopUp, show, data } = this.props;

@@ -2,8 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "antd";
 
+import { connect } from "react-redux";
+import { addItem, addItemToWishlist } from "../../redux/cart/cart.action";
+
 const ItemCard1 = props => {
-	const { imageUrl, name, price, routeName, id } = props;
+	const {
+		item: { imageUrl, name, price, id },
+		item,
+		routeName,
+		increaseItem,
+		addItemToWishList
+	} = props;
 
 	return (
 		<div className="item-card-1">
@@ -15,12 +24,25 @@ const ItemCard1 = props => {
 				<p className="item-card-1__price">${price}</p>
 
 				<div className="item-card-1__buttons">
-					<Icon type="plus" />
-					<Icon type="heart" />
+					<Icon
+						type="plus"
+						onClick={() => increaseItem({ ...item, routeName })}
+					/>
+					<Icon
+						type="heart"
+						onClick={() =>
+							addItemToWishList({ ...item, routeName })
+						}
+					/>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-export default ItemCard1;
+const mapDispatchToProps = dispatch => ({
+	increaseItem: item => dispatch(addItem(item)),
+	addItemToWishList: item => dispatch(addItemToWishlist(item))
+});
+
+export default connect(null, mapDispatchToProps)(ItemCard1);

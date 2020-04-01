@@ -1,13 +1,37 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Footer extends Component {
 	render() {
-		const links = ["Home", "Shop", "Contact Us", "Profile"].map(item => {
+		const dataMenu = [
+			{
+				id: 1,
+				name: "home",
+				url: "/"
+			},
+			{
+				id: 2,
+				name: "shop",
+				url: "/shop"
+			},
+			{
+				id: 3,
+				name: "contact us",
+				url: "/contact"
+			},
+			{
+				id: 4,
+				name: "profile",
+				url: "/user"
+			}
+		];
+		const links = dataMenu.map(item => {
+			const { id, name, url } = item;
 			return (
 				<li>
-					<a href="#pablo">
-						<p>{item}</p>
-					</a>
+					<Link to={url} key={`menu-item-footer-${id}`}>
+						<p>{name}</p>
+					</Link>
 				</li>
 			);
 		});
